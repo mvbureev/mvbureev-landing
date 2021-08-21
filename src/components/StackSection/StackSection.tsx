@@ -33,7 +33,7 @@ const stackCards = [
     color: `rgba(53, 120, 186, 0.5)`,
   },
   {
-    icon: `/images/scss-sass.png`,
+    icon: `/images/scss-sass.webp`,
     title: `SCSS/SAAS`,
     key: `SCSS/SAAS`,
     color: `rgba(192, 109, 152, 0.5)`,

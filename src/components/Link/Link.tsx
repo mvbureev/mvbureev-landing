@@ -28,7 +28,7 @@ const Link = ({
     rel="noreferrer"
     style={{ background: color }}
   >
-    {icon && <img src={icon} alt={`${alt} icon`} width={width} height={height} color="#fff" />}
+    {icon && <img src={icon} alt={alt} width={width} height={height} color="#fff" />}
     {title}
   </a>
 );
