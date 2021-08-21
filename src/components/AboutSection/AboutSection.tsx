@@ -6,7 +6,7 @@ const AboutSection = () => (
     <div className={styles.aboutContent}>
       <h1 className={styles.aboutName}>Максим Буреев</h1>
       <h2 className={styles.aboutPosition}>🦄 Front-end Engineer 🦄</h2>
-      <p className={styles.aboutCaption}>🌎 Нахожусь в Самаре 🧑🏻‍💻 Работаю удаленно</p>
+      <p className={styles.aboutCaption}>🌎 Нахожусь в Самаре 🧑‍💻 Работаю удаленно</p>
     </div>
   </section>
 );
