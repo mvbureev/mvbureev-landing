@@ -51,12 +51,6 @@ const stackCards = [
     key: `styled-components`,
     color: `rgba(246, 201, 91, 0.5)`,
   },
-  {
-    icon: `/images/css-modules.webp`,
-    title: `css-modules`,
-    key: `css-modules`,
-    color: `rgba(0, 0, 0, 0.4)`,
-  },
 ];
 
 const StackSection = () => (
