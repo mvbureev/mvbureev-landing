@@ -10,7 +10,7 @@ const contactLinks = [
     href: `https://t.me/mvbureev`,
   },
   {
-    icon: `/images/svg/social/linkedIn.svg`,
+    icon: `/images/svg/social/linkedin.svg`,
     alt: `LinkedIn`,
     key: `LinkedIn`,
     color: `#0A66C2`,
