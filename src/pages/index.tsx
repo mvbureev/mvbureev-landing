@@ -36,8 +36,12 @@ export default function Home() {
           cardType: `summary_large_image`,
         }}
       />
+      <div className="background" />
       <header>
-        <Link href="https://bit.ly/3yap0bL?utm_source=mvbureev.tech&utm_medium=top-button&utm_campaign=first&utm_content=landing-page&utm_term=notion" title="CV / Резюме" />
+        <Link
+          title="CV / Резюме"
+          href="https://bit.ly/3yap0bL?utm_source=mvbureev.tech&utm_medium=top-button&utm_campaign=first&utm_content=landing-page&utm_term=notion"
+        />
       </header>
       <main>
         <AboutSection />

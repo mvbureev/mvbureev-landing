@@ -10,10 +10,7 @@ const Page = ({ children }: IProps) => (
     <Head>
       <link rel="icon" href="/logo.png" />
     </Head>
-    <div className={styles.page}>
-      <div className={styles.background} />
-      {children}
-    </div>
+    <div className={styles.page}>{children}</div>
   </div>
 );
 

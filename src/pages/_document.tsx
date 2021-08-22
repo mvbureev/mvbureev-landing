@@ -1,5 +1,5 @@
-import * as React from "react";
-import Document, { DocumentContext, Html, Head, Main, NextScript } from "next/document";
+import * as React from 'react';
+import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -38,8 +38,19 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <script key="googletagmanager" async src="https://www.googletagmanager.com/gtag/js?id=G-3ZW0090FHG" />
-          <script key="aaa" async src="/aaa.js" />
-          <link key="fonts" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+          <script
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag("js", new Date());
+                gtag("config", "G-3ZW0090FHG");
+              `,
+            }}
+          />
+          <link rel="preload" href="/fonts/Montserrat-Regular.woff2" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/Montserrat-Regular.woff" as="font" crossOrigin="" />
           <link key="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link key="favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
           <link key="favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
