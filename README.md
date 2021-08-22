@@ -1,4 +1,4 @@
-<a href="https://mvbureev.tech">mvbureev.tech</a>
+<a href="https://mvbureev.ru">mvbureev.ru</a>
 
 - ⚡ **Next.js** — The React Framework
 - 🔥 **next-seo** — Manage SEO easily

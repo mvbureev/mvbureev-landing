@@ -14,15 +14,15 @@ export default function Home() {
       <NextSeo
         title="🦄 Maxim Bureev - Front-end Engineer - mvbureev"
         description={description}
-        canonical="https://mvbureev.tech"
+        canonical="https://mvbureev.ru"
         openGraph={{
-          url: `https://mvbureev.tech`,
+          url: `https://mvbureev.ru`,
           title: `🦄 Maxim Bureev - Front-end Engineer - mvbureev`,
           description,
           type: `website`,
           images: [
             {
-              url: `http://mvbureev.tech/images/avatar.png`,
+              url: `http://mvbureev.ru/images/avatar.png`,
               width: 1000,
               height: 1000,
               alt: `mvbureev`,
@@ -40,7 +40,7 @@ export default function Home() {
       <header>
         <Link
           title="CV / Резюме"
-          href="https://bit.ly/3yap0bL?utm_source=mvbureev.tech&utm_medium=top-button&utm_campaign=first&utm_content=landing-page&utm_term=notion"
+          href="https://bit.ly/3yap0bL?utm_source=mvbureev.ru&utm_medium=top-button&utm_campaign=first&utm_content=landing-page&utm_term=notion"
         />
       </header>
       <main>
