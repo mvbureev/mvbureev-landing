@@ -22,7 +22,7 @@ export default function Home() {
           type: `website`,
           images: [
             {
-              url: `http://mvbureev.ru/images/avatar.png`,
+              url: `http://mvbureev.ru/images/avatar.jpg`,
               width: 1000,
               height: 1000,
               alt: `mvbureev`,
