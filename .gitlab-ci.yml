@@ -1,5 +1,10 @@
 docker-build:
   stage: build
+  # variables:
+  #   DOCKER_HOST: tcp://docker:2376
+  image: docker/compose
+  tags:
+    - mvbureev
   before_script:
     - ls -lsa
     - docker info

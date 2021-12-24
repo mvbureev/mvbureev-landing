@@ -1,5 +1,5 @@
 # Base on offical Node.js Alpine image
-FROM node:alpine
+FROM node:16-alpine
 RUN apk add --no-cache libc6-compat
 # Set working directory
 WORKDIR /usr/app
