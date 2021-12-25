@@ -3,6 +3,12 @@ import styles from './StackSection.module.sass';
 
 const stackCards = [
   {
+    icon: `/images/typescript.webp`,
+    title: `TypeScript`,
+    key: `TypeScript`,
+    color: `rgba(11, 47, 90, 0.5)`,
+  },
+  {
     icon: `/images/svg/stack/ecmascript-javascript.svg`,
     title: `ECMAscript`,
     key: `ECMAscript`,
@@ -13,6 +19,12 @@ const stackCards = [
     title: `React`,
     key: `React`,
     color: `rgba(129, 219, 248, 0.5)`,
+  },
+  {
+    icon: `/images/redux.webp`,
+    title: `Redux`,
+    key: `Redux`,
+    color: `rgba(255, 255, 255, 0.3)`,
   },
   {
     icon: `/images/svg/stack/mobx.svg`,

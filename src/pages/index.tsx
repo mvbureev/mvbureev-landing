@@ -3,6 +3,7 @@ import Page from '@/components/Page';
 import AboutSection from '@/components/AboutSection';
 import StackSection from '@/components/StackSection';
 import ContactsSection from '@/components/ContactsSection';
+import Footer from '@/components/Footer';
 import Link from '@/components/Link';
 
 const description = `👋 Привет 🦄 Я — Front-end Engineer.
@@ -50,6 +51,7 @@ export default function Home() {
         <hr />
         <ContactsSection />
         <hr />
+        <Footer />
       </main>
     </Page>
   );

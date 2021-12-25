@@ -2,7 +2,7 @@ import styles from './AboutSection.module.sass';
 
 const AboutSection = () => (
   <section className={styles.aboutSection}>
-    <img className={styles.aboutAvatar} src="images/avatar-min.jpg" alt="Avatar mvbureev" />
+    <img className={styles.aboutAvatar} src="images/avatar-min.webp" alt="mvbureev.ru" />
     <div className={styles.aboutContent}>
       <h1 className={styles.aboutName}>Максим Буреев</h1>
       <h2 className={styles.aboutPosition}>🦄 Front-end Engineer 🦄</h2>

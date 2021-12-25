@@ -3,20 +3,6 @@ import styles from './ContactsSection.module.sass';
 
 const contactLinks = [
   {
-    icon: `/images/svg/social/telegram.svg`,
-    alt: `Telegram`,
-    key: `Telegram`,
-    color: `#0088cc`,
-    href: `https://t.me/mvbureev`,
-  },
-  {
-    icon: `/images/svg/social/linkedin.svg`,
-    alt: `LinkedIn`,
-    key: `LinkedIn`,
-    color: `#0A66C2`,
-    href: `https://www.linkedin.com/in/bureev/`,
-  },
-  {
     icon: `/images/svg/social/github.svg`,
     alt: `GitHub`,
     key: `GitHub`,
@@ -29,6 +15,27 @@ const contactLinks = [
     key: `GitLab`,
     color: `#D65C38`,
     href: `https://gitlab.com/mvbureev`,
+  },
+  {
+    icon: `/images/svg/social/codewars.svg`,
+    alt: `Codewars`,
+    key: `Codewars`,
+    color: `#AE3A22`,
+    href: `https://www.codewars.com/users/mvbureev`,
+  },
+  {
+    icon: `/images/svg/social/telegram.svg`,
+    alt: `Telegram`,
+    key: `Telegram`,
+    color: `#0088cc`,
+    href: `https://t.me/mvbureev`,
+  },
+  {
+    icon: `/images/svg/social/linkedin.svg`,
+    alt: `LinkedIn`,
+    key: `LinkedIn`,
+    color: `#0A66C2`,
+    href: `https://www.linkedin.com/in/bureev/`,
   },
   {
     icon: `/images/svg/social/facebook.svg`,
