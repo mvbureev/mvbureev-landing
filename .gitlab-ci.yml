@@ -1,8 +1,11 @@
-docker-build:
+image: docker/compose
+
+stages:
+  - build
+  - deploy
+
+build:
   stage: build
-  # variables:
-  #   DOCKER_HOST: tcp://docker:2376
-  image: docker/compose
   tags:
     - mvbureev
   before_script:
@@ -10,8 +13,15 @@ docker-build:
     - docker info
     - docker-compose version
     - docker-compose config
-    - docker-compose ps
   script:
     - docker-compose pull
     - docker-compose build
+
+deploy:
+  stage: deploy
+  tags:
+    - mvbureev
+  before_script:
+    - docker-compose ps
+  script:
     - docker-compose up -d

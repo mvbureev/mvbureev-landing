@@ -29,18 +29,18 @@ docker volume create gitlab-runner-config
 - Run gitlab-runner via docker:
 ```bash
 docker run -d --name gitlab-runner --restart always \
-     -v /var/run/docker.sock:/var/run/docker.sock \
-     -v gitlab-runner-config:/etc/gitlab-runner \
-     gitlab/gitlab-runner: latest
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v gitlab-runner-config:/etc/gitlab-runner \
+    gitlab/gitlab-runner:alpine
 ```
 - Register the runner:
 ```bash
-docker run --rm -it -v gitlab-runner-config:/etc/gitlab-runner gitlab/gitlab-runner: latest register
+docker run --rm -it -v gitlab-runner-config:/etc/gitlab-runner gitlab/gitlab-runner:alpine register
 ```
 (https://docs.gitlab.com/runner/register/index.html#docker).
 - Don't forget to include your __tags__ when registering! And also set the same tags in `gitlab.ci.yml`.
 - Set runner executor =__'docker__.
-- On your vps, login as root: 
+- On your vps, login as root:
 ```shell
 sudo su
 ```

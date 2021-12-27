@@ -1,37 +1,26 @@
-version: "3.8"
+version: '3.7'
 
 services:
-  proxy:
-    image: "proxy"
+  landing:
+    image: "landing"
+    container_name: "mvbureev-landing"
     build:
-      dockerfile: Dockerfile
-      context: ./nginx
-      cache_from: 
-      - "proxy"
-    restart: always
+      dockerfile: "Dockerfile"
+      context: "./"
+      cache_from:
+      - "landing"
+    restart: "unless-stopped"
+    ports:
+      - "3001:3000"
     environment:
-      CERTBOT_EMAIL: "mvbureev@gmail.com"
-    ports:
-      - "80:80"
-      - "443:443"
+      - "VIRTUAL_HOST=mvbureev.ru,www.mvbureev.ru"
+      - "LETSENCRYPT_HOST=mvbureev.ru,www.mvbureev.ru"
     networks:
-      - mvbureev-landing
-
-  nextjs:
-    image: "nextjs"
-    build:
-      dockerfile: Dockerfile
-      context: ./
-      cache_from: 
-      - "nextjs"
-    restart: unless-stopped
-    depends_on:
-      - proxy
-    ports:
-      - "3000:3000"
-    networks:
-      - mvbureev-landing
+      - "mvbureev-network"
 
 networks:
-  mvbureev-landing:
-    driver: bridge
+  mvbureev-network:
+    external: true
+
+volumes:
+  landing:
