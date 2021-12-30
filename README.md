@@ -1,4 +1,4 @@
-<a href="https://mvbureev.ru">mvbureev.ru</a>
+<a href="https://mvbureev.tech">mvbureev.tech</a>
 
 - ⚡ **Next.js** — The React Framework
 - 🔥 **next-seo** — Manage SEO easily
@@ -62,7 +62,7 @@ check_interval = 0
    session_timeout = 1800
 
 [[runners]]
-   name = "mvbureev.ru"
+   name = "mvbureev.tech"
    url = "https://gitlab.com/"
    token = "{{YOUR_TOKEN}}"
    executor = "docker"

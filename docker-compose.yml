@@ -1,26 +1,38 @@
 version: '3.7'
 
 services:
-  landing:
-    image: "landing"
-    container_name: "mvbureev-landing"
-    build:
-      dockerfile: "Dockerfile"
-      context: "./"
-      cache_from:
-      - "landing"
-    restart: "unless-stopped"
-    ports:
-      - "3001:3000"
-    environment:
-      - "VIRTUAL_HOST=mvbureev.ru,www.mvbureev.ru"
-      - "LETSENCRYPT_HOST=mvbureev.ru,www.mvbureev.ru"
+  landing-nextjs:
+    image: landing-nextjs
+    container_name: landing-nextjs
     networks:
-      - "mvbureev-network"
+      - proxy
+    build:
+      dockerfile: Dockerfile
+      context: ./
+      cache_from:
+      - landing-nextjs
+    restart: unless-stopped
+
+  landing-proxy:
+    image: landing-proxy
+    container_name: landing-proxy
+    networks:
+      - proxy
+    depends_on:
+      - landing-nextjs
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+      cache_from:
+      - landing-proxy
+    restart: always
+    labels:
+      - traefik.http.routers.https.rule=Host("${DOMAIN}")
+      - traefik.http.routers.https.entrypoints=https
+      - traefik.http.routers.https.tls=true
+      - traefik.http.routers.https.tls.certresolver=${CERT_RESOLVER}
+      - traefik.docker.network=proxy
 
 networks:
-  mvbureev-network:
+  proxy:
     external: true
-
-volumes:
-  landing:
