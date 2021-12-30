@@ -1,27 +1,126 @@
-image: docker/compose
-
 stages:
+  - env
   - build
+  - package
   - deploy
+  - clean_up
 
+variables:
+  ENV_FILE: .env.local
+
+# ------ env stage ------
+.env-common:
+  stage: env
+  tags:
+  - portal-1
+  script:
+    - >
+      echo -e "
+      export DOMAIN=$DOMAIN\n
+      export SUBDOMAIN=$SUBDOMAIN\n
+      export NODE_ENV=$NODE_ENV\n
+      export CUSTOM_CONTAINER_NAME=$CUSTOM_CONTAINER_NAME\n
+      export COMPOSE_PROJECT_NAME=${CUSTOM_CONTAINER_NAME}-${DOMAIN//./-}\n
+      " > .env.local
+  artifacts:
+    paths:
+      - $ENV_FILE
+  rules:
+    - when: never
+
+env-staging:
+  stage: env
+  extends: .env-common
+  before_script:
+    - CUSTOM_CONTAINER_NAME=staging-landing
+    - SUBDOMAIN=${CUSTOM_CONTAINER_NAME}.
+    - NODE_ENV=production
+    - cat $ENV_STAGING >> .env.local | true
+  rules:
+    - if: $CI_COMMIT_BRANCH == "staging"
+
+env-production:
+  stage: env
+  extends: .env-common
+  before_script:
+    - CUSTOM_CONTAINER_NAME=landing
+    # - SUBDOMAIN=
+    - NODE_ENV=production
+    - cat $ENV_PRODUCTION >> .env.local | true
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+
+# ------ build stage ------
 build:
   stage: build
+  image: node:16-alpine
+  cache:
+    key: cache_${CI_PROJECT_TITLE}_${CI_COMMIT_BRANCH}_${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules
   tags:
-    - mvbureev
+    - portal-1
   before_script:
+    - source $ENV_FILE
     - ls -lsa
+    - cat ./package.json
+  script:
+    - yarn install --frozen-lockfile --production=false
+    - NEXT_PUBLIC_DOMAIN=$DOMAIN NEXT_PUBLIC_SUBDOMAIN=$SUBDOMAIN yarn build
+
+  artifacts:
+    paths:
+      - .next
+      - build
+    expire_in: 1 day
+  rules:
+    - if: $CI_COMMIT_BRANCH == "staging"
+      when: on_success
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: on_success
+
+# ------ package stage ------
+package:
+  stage: package
+  image: docker/compose
+  tags:
+    - portal-1
+  before_script:
+    - source $ENV_FILE
     - docker info
     - docker-compose version
     - docker-compose config
   script:
     - docker-compose pull
     - docker-compose build
+  rules:
+    - if: $CI_COMMIT_BRANCH == "staging"
+      when: on_success
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: on_success
 
+# ------ deploy stage ------
 deploy:
   stage: deploy
+  image: docker/compose
   tags:
-    - mvbureev
+    - portal-1
   before_script:
+    - source $ENV_FILE
     - docker-compose ps
+    - docker-compose version
   script:
     - docker-compose up -d
+  rules:
+    - if: $CI_COMMIT_BRANCH == "staging"
+      when: on_success
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: manual
+
+clean_up:
+  stage: clean_up
+  tags:
+    - portal-1
+  script:
+    - rm -rf node_modules
+  when: on_failure

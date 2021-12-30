@@ -1,24 +1,25 @@
-# Base on offical Node.js Alpine image
+# Production image, copy all the files and run next
 FROM node:16-alpine
 RUN apk add --no-cache libc6-compat
-# Set working directory
-WORKDIR /usr/app
-# Install PM2 globally
+WORKDIR /app
+# ENV NODE_ENV production
+
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
 RUN npm install --global pm2
-# Copy package.json and package-lock.json before other files
-# Utilise Docker cache to save re-installing dependencies if unchanged
+
 COPY package*.json yarn.lock ./
-# Install dependencies
-RUN yarn install --frozen-lockfile
-# Copy all files
-COPY ./ ./
-# Build app
-RUN NODE_ENV=production yarn build
-# Expose the listening port
+RUN yarn --production --ignore-scripts --prefer-offline
+
+# You only need to copy next.config.js if you are NOT using the default configuration
+COPY next.config.js ./
+COPY public ./public
+COPY --chown=nextjs:nodejs build ./build
+COPY package.json ./package.json
+
 EXPOSE 3000
+USER nextjs
+ENV PORT 3000
 ENV NEXT_TELEMETRY_DISABLED 1
-# Run container as non-root (unprivileged) user
-# The node user is provided in the Node.js Alpine base image
-USER node
-# Run npm start script with PM2 when container starts
 CMD [ "pm2-runtime", "npm", "--", "start" ]

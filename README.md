@@ -92,3 +92,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## ❤️ Gratitude
 
 This project is based on the [jkytoela/next-startd template](https://github.com/jkytoela/next-startd)
+

@@ -4,8 +4,8 @@ const Footer = () => (
   <footer className={styles.footer}>
     <code>
       Исходники:{' '}
-      <a href="https://github.com/mvbureev/landing-page" target="_blank" rel="noreferrer">
-        github.com/mvbureev/landing-page
+      <a href="https://github.com/mvbureev/mvbureev-landing" target="_blank" rel="noreferrer">
+        github.com/mvbureev/mvbureev-landing
       </a>
     </code>
   </footer>

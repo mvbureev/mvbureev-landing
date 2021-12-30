@@ -1,21 +1,27 @@
-version: '3.7'
+version: "3.7"
 
 services:
   landing-nextjs:
-    image: landing-nextjs
-    container_name: landing-nextjs
+    image: ${COMPOSE_PROJECT_NAME}-nextjs
+    container_name: ${COMPOSE_PROJECT_NAME}-nextjs
+    environment:
+      - NODE_ENV
     networks:
       - proxy
     build:
       dockerfile: Dockerfile
       context: ./
       cache_from:
-      - landing-nextjs
+      - ${COMPOSE_PROJECT_NAME}-nextjs
     restart: unless-stopped
 
   landing-proxy:
-    image: landing-proxy
-    container_name: landing-proxy
+    image: ${COMPOSE_PROJECT_NAME}-proxy
+    container_name: ${COMPOSE_PROJECT_NAME}-proxy
+    environment:
+      - DOMAIN
+      - SUBDOMAIN
+      - COMPOSE_PROJECT_NAME
     networks:
       - proxy
     depends_on:
@@ -24,13 +30,13 @@ services:
       dockerfile: Dockerfile
       context: ./nginx
       cache_from:
-      - landing-proxy
+      - ${COMPOSE_PROJECT_NAME}-proxy
     restart: always
     labels:
-      - traefik.http.routers.https.rule=Host("${DOMAIN}")
-      - traefik.http.routers.https.entrypoints=https
-      - traefik.http.routers.https.tls=true
-      - traefik.http.routers.https.tls.certresolver=${CERT_RESOLVER}
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host("${SUBDOMAIN}${DOMAIN}")
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}.entrypoints=https
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}.tls=true
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}.tls.certresolver=${CERT_RESOLVER}
       - traefik.docker.network=proxy
 
 networks:
