@@ -27,12 +27,6 @@ const stackCards = [
     color: `rgba(255, 255, 255, 0.3)`,
   },
   {
-    icon: `/images/svg/stack/mobx.svg`,
-    title: `MobX`,
-    key: `MobX`,
-    color: `rgba(221, 113, 54, 0.5)`,
-  },
-  {
     icon: `/images/svg/stack/nextjs.svg`,
     title: `Next.js`,
     key: `Next.js`,
@@ -70,8 +64,8 @@ const StackSection = () => (
     <div className={styles.stackContent}>
       <h2 className={styles.stackTitle}>Навыки</h2>
       <div className={styles.stackGrid}>
-        {stackCards.map((cardItem) => (
-          <Card {...cardItem} />
+        {stackCards.map(({ key, ...cardItem }) => (
+          <Card key={key} {...cardItem} />
         ))}
       </div>
     </div>

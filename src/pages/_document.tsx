@@ -60,7 +60,7 @@ class MyDocument extends Document {
           <meta key="application-name" name="application-name" content="mvbureev" />
           <meta key="msapplication-TileColor" name="msapplication-TileColor" content="#101A27" />
           <meta key="theme-color" name="theme-color" content="#101A27" />
-          <meta name='freelancehunt' content='6bd9c0ce1956099' />
+          <meta name="freelancehunt" content="6bd9c0ce1956099" />
         </Head>
         <body>
           <Main />

@@ -72,8 +72,8 @@ const ContactsSection = () => (
     <div className={styles.contactsContent}>
       <h2 className={styles.contactsTitle}>Контакты</h2>
       <div className={styles.contactsGrid}>
-        {contactLinks.map((buttonItem) => (
-          <Link {...buttonItem} />
+        {contactLinks.map(({ key, ...buttonItem }) => (
+          <Link key={key} {...buttonItem} />
         ))}
       </div>
     </div>
