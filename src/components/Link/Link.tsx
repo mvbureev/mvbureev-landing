@@ -9,6 +9,7 @@ interface IProps {
   title?: string | null;
   width?: number;
   height?: number;
+  className?: string;
 }
 
 const Link = ({
@@ -20,9 +21,10 @@ const Link = ({
   title = null,
   width = 36,
   height = 36,
+  className
 }: IProps) => (
   <a
-    className={`${styles.link} ${block && styles.block}`}
+    className={className || `${styles.link} ${block && styles.block}`}
     href={href}
     target="_blank"
     rel="noreferrer"

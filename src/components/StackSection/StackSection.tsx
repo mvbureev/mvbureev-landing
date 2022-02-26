@@ -62,7 +62,7 @@ const stackCards = [
 const StackSection = () => (
   <section className={styles.stackSection}>
     <div className={styles.stackContent}>
-      <h2 className={styles.stackTitle}>Навыки</h2>
+      <h2 className={styles.stackTitle}>Skills</h2>
       <div className={styles.stackGrid}>
         {stackCards.map(({ key, ...cardItem }) => (
           <Card key={key} {...cardItem} />

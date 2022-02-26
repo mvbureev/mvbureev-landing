@@ -70,7 +70,7 @@ const contactLinks = [
 const ContactsSection = () => (
   <section className={styles.contactsSection}>
     <div className={styles.contactsContent}>
-      <h2 className={styles.contactsTitle}>Контакты</h2>
+      <h2 className={styles.contactsTitle}>Contacts</h2>
       <div className={styles.contactsGrid}>
         {contactLinks.map(({ key, ...buttonItem }) => (
           <Link key={key} {...buttonItem} />

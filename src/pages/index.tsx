@@ -6,8 +6,8 @@ import ContactsSection from '@/components/ContactsSection';
 import Footer from '@/components/Footer';
 import Link from '@/components/Link';
 
-const description = `👋 Привет 🦄 Я — Front-end Engineer.
-На этом сайте вы найдете навыки, которыми я владею, контакты, а так же мое резюме`;
+const description = `👋 Hello 🦄 I am a Front-end Engineer.
+On this site you will find my skills, contacts, as well as my CV`;
 
 export default function Home() {
   return (
@@ -38,14 +38,15 @@ export default function Home() {
         }}
       />
       <div className="background" />
-      <header>
-        <Link
-          title="CV / Резюме"
-          href="https://bit.ly/3yap0bL?utm_source=mvbureev.tech&utm_medium=top-button&utm_campaign=first&utm_content=landing-page&utm_term=notion"
-        />
-      </header>
       <main>
         <AboutSection />
+        <hr />
+        <div className="cv">
+          <Link
+            title="🔗 CV 🔗"
+            href="https://bit.ly/3yap0bL?utm_source=mvbureev.tech&utm_medium=top-button&utm_campaign=first&utm_content=landing-page&utm_term=notion"
+            />
+        </div>
         <hr />
         <StackSection />
         <hr />

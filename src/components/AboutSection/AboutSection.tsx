@@ -4,9 +4,9 @@ const AboutSection = () => (
   <section className={styles.aboutSection}>
     <img className={styles.aboutAvatar} src="images/avatar-min.webp" alt="mvbureev.tech" />
     <div className={styles.aboutContent}>
-      <h1 className={styles.aboutName}>Максим Буреев</h1>
-      <h2 className={styles.aboutPosition}>🦄 Front-end Engineer 🦄</h2>
-      <p className={styles.aboutCaption}>🌎 Нахожусь в Самаре 🧑‍💻 Работаю удаленно</p>
+      <h1 className={styles.aboutName}>Maxim Bureev</h1>
+      <h2 className={styles.aboutPosition}>Front-end Engineer</h2>
+      <p className={styles.aboutCaption}>🌎 Looking for a job in <b>Cyprus</b> with relocation 🌎</p>
     </div>
   </section>
 );
