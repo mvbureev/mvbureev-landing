@@ -30,7 +30,7 @@ const stackCards = [
     icon: `/images/svg/stack/nextjs.svg`,
     title: `Next.js`,
     key: `Next.js`,
-    color: `rgba(0, 0, 0, 0.3)`,
+    color: `rgba(33, 100, 200, 0.5)`,
   },
   {
     icon: `/images/svg/stack/webpack.svg`,

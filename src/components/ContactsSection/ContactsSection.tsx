@@ -38,13 +38,6 @@ const contactLinks = [
     href: `https://www.linkedin.com/in/bureev/`,
   },
   {
-    icon: `/images/svg/social/facebook.svg`,
-    alt: `Facebook`,
-    key: `Facebook`,
-    color: `#1877F2`,
-    href: `https://www.facebook.com/mvbureev`,
-  },
-  {
     icon: `/images/svg/social/twitter.svg`,
     alt: `Twitter`,
     key: `Twitter`,
@@ -52,17 +45,10 @@ const contactLinks = [
     href: `https://twitter.com/mvbureev`,
   },
   {
-    icon: `/images/svg/social/instagram.svg`,
-    alt: `Instagram`,
-    key: `Instagram`,
-    color: `#E4405F`,
-    href: `https://www.instagram.com/mvbureev/`,
-  },
-  {
     icon: `/images/svg/social/mail.svg`,
     alt: `Mail`,
     key: `Mail`,
-    color: `#131418`,
+    color: `#666666`,
     href: `mailto:mvbureev@gmail.com`,
   },
 ];
