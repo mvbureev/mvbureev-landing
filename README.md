@@ -1,4 +1,4 @@
-<a href="https://mvbureev.tech">mvbureev.tech</a>
+<a href="https://mvbureev.com">mvbureev.com</a>
 
 - ⚡ **Next.js** — The React Framework
 - 🔥 **next-seo** — Manage SEO easily
@@ -62,7 +62,7 @@ check_interval = 0
    session_timeout = 1800
 
 [[runners]]
-   name = "mvbureev.tech"
+   name = "mvbureev.com"
    url = "https://gitlab.com/"
    token = "{{YOUR_TOKEN}}"
    executor = "docker"
@@ -92,4 +92,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## ❤️ Gratitude
 
 This project is based on the [jkytoela/next-startd template](https://github.com/jkytoela/next-startd)
-
